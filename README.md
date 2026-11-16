@@ -17,11 +17,82 @@ A complete, battle-tested OpenCore EFI configuration and post-installation optim
 | **Bluetooth**| Intel Wireless Bluetooth | **Working** | `IntelBluetoothFirmware.kext` + `BlueToolFixup.kext` |
 | **Storage** | NVMe SSD (Toshiba XG5, WD SN750/770, SK Hynix P31) | **Working** | `NVMeFix.kext` *(Note: Avoid Samsung PM981)* |
 | **Trackpad** | Synaptics ClickPad + TrackPoint + 3 Physical Buttons | **Working** | `VoodooSMBus.kext` + `VoodooRMI.kext` (Native multi-touch gestures) |
-| **Keyboard** | ThinkPad Backlit Keyboard | **Working** | `VoodooPS2Controller.kext` + `BrightnessKeys.kext` |
+| **Keyboard** | ThinkPad Backlit Keyboard & Fn Shortcuts | **Working** | `VoodooPS2Controller.kext` + `BrightnessKeys.kext` + `YogaSMC` |
 | **Display** | 14" FHD (1920x1080) / WQHD (2560x1440) | **Working** | Smooth backlight control via `SSDT-PNLF.aml` |
 | **Ports** | 2x USB-A 3.0, 2x Thunderbolt 3 / USB-C, 1x HDMI | **Working** | ACPI TB3 hotplug tree + Custom USB mapping |
 | **Camera** | 720p HD Webcam | **Working** | Native UVC USB video |
+| **Card Reader**| Realtek RTS525A PCIe MicroSD Card Reader | **Working** | `RealtekCardReader.kext` |
 | **Fingerprint**| Synaptics USB Fingerprint Sensor | **Unsupported**| macOS does not support third-party biometric sensors |
+| **WWAN (LTE)**| Fibocom L850-GL 4G LTE Module | **Unsupported**| Intel XMM 7360 PCIe modem has no macOS driver |
+
+---
+
+## ⌨️ ThinkPad Function (Fn) Keys
+
+All essential function keys and Lenovo shortcuts are properly mapped:
+
+| Key Combination | Function | Status | Notes |
+| :--- | :--- | :--- | :--- |
+| **Fn + Esc** | FnLock Toggle | **Working** | Handled natively by Lenovo Embedded Controller (EC) |
+| **F1** | Audio Mute | **Working** | Native macOS volume mute |
+| **F2** | Volume Down | **Working** | Native macOS volume down |
+| **F3** | Volume Up | **Working** | Native macOS volume up |
+| **F4** | Microphone Mute | **Working** | Mutes input; orange LED toggle via `YogaSMC` |
+| **F5** | Brightness Down | **Working** | 16-step smooth display dimming via `BrightnessKeys` |
+| **F6** | Brightness Up | **Working** | 16-step smooth display brightness via `BrightnessKeys` |
+| **F7** | Projector / Multi-Display | **Working** | Native macOS display mirror/extend toggle |
+| **F8** | Wi-Fi Toggle | **N/A** | macOS handles networking via Menu Bar / HeliPort |
+| **F9** | Settings / Notification Center | **Working** | Opens macOS Notification Center |
+| **F10** | Bluetooth Toggle | **N/A** | Managed via macOS Control Center |
+| **F11** | Keyboard Backlight / Custom | **Working** | Can be mapped via macOS Shortcuts or `YogaSMC` |
+| **F12** | User-Defined Star Key | **Working** | Configurable via macOS Keyboard Shortcuts |
+| **Fn + Space** | Keyboard Backlight (Off/Low/High) | **Working** | Handled by EC in hardware (100% OS independent) |
+| **TrackPoint** | Red TrackPoint + Left/Middle/Right Click | **Working** | Smooth cursor movement + middle-click scroll |
+
+---
+
+## 🍏 Apple Continuity & Ecosystem Features
+
+| Feature | Stock Intel AC 8265 | With Broadcom Upgrade (`BCM94360NG`) | Notes |
+| :--- | :---: | :---: | :--- |
+| **iMessage & FaceTime** | ✅ **Working** | ✅ **Working** | Requires valid SMBIOS serials generated via GenSMBIOS |
+| **iCloud & App Store** | ✅ **Working** | ✅ **Working** | Native authentication |
+| **AirDrop** | ❌ **Unsupported** | ✅ **Working** | Requires Apple Wireless Direct Link (AWDL) proprietary protocol |
+| **Universal Control** | ❌ **Unsupported** | ✅ **Working** | Requires native Apple Broadcom Wi-Fi & Bluetooth stack |
+| **Handoff & Universal Clipboard**| ⚠️ **Unreliable / Broken** | ✅ **Working** | `itlwm` cannot reliably sustain Apple Continuity daemon sync |
+| **Apple Watch Unlock** | ❌ **Unsupported** | ✅ **Working** | Requires native AWDL ranging and timing |
+| **AirPlay to Mac** | ⚠️ **Partial** | ✅ **Working** | Works over local LAN; direct peer-to-peer requires Broadcom AWDL |
+| **Sidecar (Wired USB)** | ✅ **Working** | ✅ **Working** | Plug iPad via USB cable |
+| **Sidecar (Wireless)** | ❌ **Unsupported** | ✅ **Working** | Requires AWDL / Broadcom Wi-Fi |
+
+---
+
+## 🚫 Unsupported Hardware & System Limitations
+
+1. **Fingerprint Sensor (Synaptics `06cb:009a`):**
+   - **Status:** Unsupported.
+   - **Reason:** Apple's Touch ID authentication is cryptographically tethered to Apple Silicon / T2 Secure Enclave processors. No third-party USB fingerprint reader can interface with macOS PAM / Keychain.
+2. **WWAN 4G LTE Cellular Modem (Fibocom L850-GL):**
+   - **Status:** Unsupported.
+   - **Reason:** Built on the Intel XMM 7360 PCIe modem architecture, for which no macOS drivers or RIL daemons exist.
+3. **Hardware DRM in Safari (FairPlay 2.x / 3.x):**
+   - **Status:** Limited.
+   - **Details:** 4K Netflix and Apple TV+ in Safari require an Apple T2 chip or discrete AMD GPU.
+   - **Solution:** 1080p streaming works perfectly in Chrome, Firefox, Brave, and Edge using Widevine DRM.
+4. **Incompatible NVMe SSDs:**
+   - **Samsung PM981 / PM981a (OEM)** causes unrecoverable kernel panics in macOS.
+   - *Supported alternatives:* Toshiba XG5 (stock), WD Black SN750 / SN770, SK Hynix Gold P31, Crucial P3/P5, Samsung 970 EVO Plus.
+
+---
+
+## 🔄 Recommended Hardware Upgrade: Broadcom BCM94360NG
+
+If you need full native **AirDrop**, **Universal Control**, **Handoff**, and **Apple Watch Unlock**:
+* Replace the internal M.2 Wi-Fi card (`Intel AC 8265`) with a **Broadcom BCM94360NG** (M.2 Key A/E).
+* **Advantages:**
+  * Direct drop-in replacement (no whitelist restrictions on X1 Carbon 6th Gen).
+  * Recognized natively as an Apple AirPort card without `itlwm` or HeliPort.
+  * *Note for macOS Sonoma & Sequoia:* Requires applying OpenCore Legacy Patcher (OCLP) Modern Wireless root patches, as Apple removed native Kexts for Broadcom cards starting in macOS 14.
 
 ---
 
