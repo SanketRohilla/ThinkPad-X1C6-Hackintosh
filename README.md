@@ -2,7 +2,7 @@
 
 OpenCore 1.0.2 EFI and post-install configuration for the Lenovo ThinkPad X1 Carbon 6th Generation.
 
-Tested on **macOS Ventura (13.x)**, **Sonoma (14.x)**, **Sequoia (15.x)**, and **Tahoe (16.x)**.
+Tested on **macOS Ventura (13.x)**, **Sonoma (14.x)**, **Sequoia (15.x)**, and **Tahoe (macOS 26)**.
 
 ---
 
@@ -27,7 +27,7 @@ Tested on **macOS Ventura (13.x)**, **Sonoma (14.x)**, **Sequoia (15.x)**, and *
 
 - **macOS Ventura (13.x):** Native graphics and audio support without extra root patches.
 - **macOS Sonoma (14.x) & Sequoia (15.x):** Apple dropped native Kaby Lake graphics drivers. Requires OpenCore Legacy Patcher (OCLP) root patch + `AMFIPass.kext` for full QE/CI Metal acceleration.
-- **macOS Tahoe (16.x):** Supported. In Tahoe, Apple deprecated legacy `AppleHDA`. Audio and graphics drivers both require OCLP root patching to restore functionality. Use `config-for-Sequoia-install.plist` (`revpatch=sbvmm`) for installer updates.
+- **macOS Tahoe (macOS 26):** Supported. In Tahoe, Apple deprecated legacy `AppleHDA`. Audio and graphics drivers both require OCLP root patching to restore functionality. Use `config-for-Sequoia-install.plist` (`revpatch=sbvmm`) for installer updates.
 
 ---
 
