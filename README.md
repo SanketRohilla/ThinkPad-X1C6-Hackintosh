@@ -95,6 +95,30 @@ Reboot and hit `Enter` / `F1` to enter ThinkPad BIOS Setup:
 
 ---
 
+## USB Installer & Recovery Setup
+
+1. Format a USB drive (1GB or larger) as **FAT32 / MBR**.
+2. Download Apple's official Recovery installer using the included utility:
+   ```bash
+   python3 Utilities/macrecovery/macrecovery.py -b Mac-827FAC58A8FDFA22 -m 00000000000000000 -os latest download
+   ```
+3. Copy both `EFI` and `com.apple.recovery.boot` to the root of your USB drive:
+   ```text
+   USB_ROOT/
+   ├── EFI/
+   │   ├── BOOT/
+   │   │   └── BOOTx64.efi
+   │   └── OC/
+   │       ├── config.plist
+   │       └── ...
+   └── com.apple.recovery.boot/
+       ├── BaseSystem.chunklist
+       └── BaseSystem.dmg
+   ```
+4. Insert the USB into your ThinkPad, press `F12` on boot, select your USB drive, and choose **macOS Recovery (dmg)** from the OpenCore picker.
+
+---
+
 ## Post-Install: Undervolting & Thermal Setup
 
 The X1 Carbon 6th Gen aggressively throttles to 15W under sustained load. The `Post-Install/VoltageShift` tools unlock 25W–35W TDP and undervolt the CPU:
