@@ -97,12 +97,42 @@ Reboot and hit `Enter` / `F1` to enter ThinkPad BIOS Setup:
 
 ## USB Installer & Recovery Setup
 
-1. Format a USB drive (1GB or larger) as **FAT32 / MBR**.
-2. Download Apple's official Recovery installer using the included utility:
-   ```bash
-   python3 Utilities/macrecovery/macrecovery.py -b Mac-827FAC58A8FDFA22 -m 00000000000000000 -os latest download
-   ```
-3. Copy both `EFI` and `com.apple.recovery.boot` to the root of your USB drive:
+Each macOS version requires its own recovery image and configuration.
+
+### 1. Download Recovery by macOS Version
+
+Run the appropriate command from the repository root:
+
+* **macOS Ventura (13.7.x):**
+  ```bash
+  python3 Utilities/macrecovery/macrecovery.py -b Mac-B4831CEBD52A0C4C -m 00000000000000000 download
+  ```
+  *(Uses standard `config.plist` directly)*
+
+* **macOS Sonoma (14.7.x):**
+  ```bash
+  python3 Utilities/macrecovery/macrecovery.py -b Mac-827FAC58A8FDFA22 -m 00000000000000000 download
+  ```
+  *(Uses `config-for-Sequoia-install.plist` renamed to `config.plist`)*
+
+* **macOS Sequoia (15.x):**
+  ```bash
+  python3 Utilities/macrecovery/macrecovery.py -b Mac-7BA5B2D9E42DDD94 -m 00000000000000000 -os latest download
+  ```
+  *(Uses `config-for-Sequoia-install.plist` renamed to `config.plist`)*
+
+* **macOS Tahoe (macOS 26):**
+  Apple does not host standalone Intel Board-ID recovery images on `oscdn.apple.com` for Tahoe. To install Tahoe:
+  * **Option A (OTA Upgrade - Recommended):** Install Sonoma or Sequoia first. Once on the desktop, go to **System Settings -> General -> Software Update**. Because this EFI has `RestrictEvents` + `revpatch=sbvmm` pre-configured, the macOS 26 Tahoe update will appear directly. Click **Upgrade Now**.
+  * **Option B (Offline USB):** Download the full `InstallAssistant.pkg` for Tahoe, build an installer drive using `createinstallmedia`, and copy this `EFI` folder to the USB.
+  * *Post-Install for Tahoe:* Apple deprecated legacy `AppleHDA`. Run OCLP (OpenCore Legacy Patcher) root patches to restore both UHD 620 graphics acceleration and audio.
+
+---
+
+### 2. Preparing the USB Drive
+
+1. Format a USB flash drive (1GB+ for Recovery, 16GB+ for Full Installer) as **FAT32 / MBR**.
+2. Copy `EFI` and `com.apple.recovery.boot` to the root of the USB drive:
    ```text
    USB_ROOT/
    ├── EFI/
@@ -115,7 +145,9 @@ Reboot and hit `Enter` / `F1` to enter ThinkPad BIOS Setup:
        ├── BaseSystem.chunklist
        └── BaseSystem.dmg
    ```
-4. Insert the USB into your ThinkPad, press `F12` on boot, select your USB drive, and choose **macOS Recovery (dmg)** from the OpenCore picker.
+3. **Important for Sonoma / Sequoia / Tahoe installs:** Rename `EFI/OC/config-for-Sequoia-install.plist` to `EFI/OC/config.plist` on the USB before booting the installer. (This temporarily disables Bluetooth and enables `revpatch=sbvmm` to prevent installer halts).
+4. Insert the USB, press `F12` on boot, select your USB drive, and choose **macOS Recovery (dmg)** from the OpenCore boot picker.
+5. After macOS is installed and you reach the desktop, copy `EFI` to your SSD and switch back to standard `config.plist` to re-enable Bluetooth.
 
 ---
 
