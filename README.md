@@ -117,7 +117,7 @@ Run the appropriate command from the repository root:
 
 * **macOS Sequoia (15.x):**
   ```bash
-  python3 Utilities/macrecovery/macrecovery.py -b Mac-7BA5B2D9E42DDD94 -m 00000000000000000 -os latest download
+  python3 Utilities/macrecovery/macrecovery.py -b Mac-7BA5B2D9E42DDD94 -m 00000000000000000 download
   ```
   *(Uses default installer `config.plist`)*
 
