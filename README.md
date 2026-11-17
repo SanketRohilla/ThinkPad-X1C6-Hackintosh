@@ -113,19 +113,21 @@ Run the appropriate command from the repository root:
   ```bash
   python3 Utilities/macrecovery/macrecovery.py -b Mac-827FAC58A8FDFA22 -m 00000000000000000 download
   ```
-  *(Uses `config-for-Sequoia-install.plist` renamed to `config.plist`)*
+  *(Uses default installer `config.plist`)*
 
 * **macOS Sequoia (15.x):**
   ```bash
   python3 Utilities/macrecovery/macrecovery.py -b Mac-7BA5B2D9E42DDD94 -m 00000000000000000 -os latest download
   ```
-  *(Uses `config-for-Sequoia-install.plist` renamed to `config.plist`)*
+  *(Uses default installer `config.plist`)*
 
 * **macOS Tahoe (macOS 26):**
-  Apple does not host standalone Intel Board-ID recovery images on `oscdn.apple.com` for Tahoe. To install Tahoe:
-  * **Option A (OTA Upgrade - Recommended):** Install Sonoma or Sequoia first. Once on the desktop, go to **System Settings -> General -> Software Update**. Because this EFI has `RestrictEvents` + `revpatch=sbvmm` pre-configured, the macOS 26 Tahoe update will appear directly. Click **Upgrade Now**.
-  * **Option B (Offline USB):** Download the full `InstallAssistant.pkg` for Tahoe, build an installer drive using `createinstallmedia`, and copy this `EFI` folder to the USB.
-  * *Post-Install for Tahoe:* Apple deprecated legacy `AppleHDA`. Run OCLP (OpenCore Legacy Patcher) root patches to restore both UHD 620 graphics acceleration and audio.
+  ```bash
+  python3 Utilities/macrecovery/macrecovery.py -b Mac-27AD2F918AE68F61 -m 00000000000000000 -os latest download
+  ```
+  *(Uses default installer `config.plist`)*
+
+  *Note:* You can also upgrade directly from Sonoma or Sequoia via **System Settings -> General -> Software Update** thanks to `revpatch=sbvmm`. Post-install, run OCLP root patches to restore both UHD 620 graphics and audio.
 
 ---
 
@@ -145,9 +147,9 @@ Run the appropriate command from the repository root:
        ├── BaseSystem.chunklist
        └── BaseSystem.dmg
    ```
-3. **Important for Sonoma / Sequoia / Tahoe installs:** Rename `EFI/OC/config-for-Sequoia-install.plist` to `EFI/OC/config.plist` on the USB before booting the installer. (This temporarily disables Bluetooth and enables `revpatch=sbvmm` to prevent installer halts).
+3. **Out-of-the-box Installer Config:** `EFI/OC/config.plist` is already pre-configured for installation on Sonoma, Sequoia, and macOS 26 Tahoe (with `revpatch=sbvmm` active and Bluetooth kexts temporarily disabled to avoid installer freezes).
 4. Insert the USB, press `F12` on boot, select your USB drive, and choose **macOS Recovery (dmg)** from the OpenCore boot picker.
-5. After macOS is installed and you reach the desktop, copy `EFI` to your SSD and switch back to standard `config.plist` to re-enable Bluetooth.
+5. After macOS is installed and you reach the desktop, switch to `EFI/OC/config-postinstall.plist` (rename it to `config.plist`) on your SSD to re-enable native Bluetooth.
 
 ---
 

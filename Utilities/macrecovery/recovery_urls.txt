@@ -40,6 +40,12 @@ Ventura
 Sonoma
 ./macrecovery.py -b Mac-827FAC58A8FDFA22 -m 00000000000000000
 
+Sequoia
+./macrecovery.py -b Mac-7BA5B2D9E42DDD94 -m 00000000000000000 -os latest
+
+Tahoe (macOS 26)
+./macrecovery.py -b Mac-27AD2F918AE68F61 -m 00000000000000000 -os latest
+
 Diagnostics
 ./macrecovery.py -b Mac-7BA5B2D9E42DDD94 -m 00000000000000000 -diag
 ./macrecovery.py -b Mac-7BA5B2D9E42DDD94 -m 00000000000JG3600 -diag
