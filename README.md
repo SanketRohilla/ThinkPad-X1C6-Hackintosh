@@ -2,7 +2,7 @@
 
 OpenCore 1.0.2 EFI and post-install configuration for the Lenovo ThinkPad X1 Carbon 6th Generation.
 
-Tested on **macOS Ventura (13.x)**, **Sonoma (14.x)**, **Sequoia (15.x)**, and **Tahoe (macOS 26)**.
+Tested on **macOS Ventura (13.x)**, **Sonoma (14.x)**, and **macOS Sequoia (15.x)** (verified on Sequoia 15.8.3).
 
 ---
 
@@ -26,8 +26,7 @@ Tested on **macOS Ventura (13.x)**, **Sonoma (14.x)**, **Sequoia (15.x)**, and *
 ## macOS Version Support
 
 - **macOS Ventura (13.x):** Native graphics and audio support without extra root patches.
-- **macOS Sonoma (14.x) & Sequoia (15.x):** Apple dropped native Kaby Lake graphics drivers. Requires OpenCore Legacy Patcher (OCLP) root patch + `AMFIPass.kext` for full QE/CI Metal acceleration.
-- **macOS Tahoe (macOS 26):** Supported. In Tahoe, Apple deprecated legacy `AppleHDA`. Audio and graphics drivers both require OCLP root patching to restore functionality. Use `config-for-Sequoia-install.plist` (`revpatch=sbvmm`) for installer updates.
+- **macOS Sonoma (14.x) & Sequoia (15.x):** Apple dropped native Kaby Lake graphics drivers. Requires OpenCore Legacy Patcher (OCLP) root patch + `AMFIPass.kext` for full QE/CI Metal acceleration. Tested up to Sequoia 15.8.3 with instant S3 sleep/wake and native webcam support.
 
 ---
 
@@ -121,14 +120,6 @@ Run the appropriate command from the repository root:
   ```
   *(Uses default installer `config.plist`)*
 
-* **macOS Tahoe (macOS 26):**
-  ```bash
-  python3 Utilities/macrecovery/macrecovery.py -b Mac-27AD2F918AE68F61 -m 00000000000000000 -os latest download
-  ```
-  *(Uses default installer `config.plist`)*
-
-  *Note:* You can also upgrade directly from Sonoma or Sequoia via **System Settings -> General -> Software Update** thanks to `revpatch=sbvmm`. Post-install, run OCLP root patches to restore both UHD 620 graphics and audio.
-
 ---
 
 ### 2. Preparing the USB Drive
@@ -147,7 +138,7 @@ Run the appropriate command from the repository root:
        ├── BaseSystem.chunklist
        └── BaseSystem.dmg
    ```
-3. **Out-of-the-box Installer Config:** `EFI/OC/config.plist` is already pre-configured for installation on Sonoma, Sequoia, and macOS 26 Tahoe (with `revpatch=sbvmm` active and Bluetooth kexts temporarily disabled to avoid installer freezes).
+3. **Out-of-the-box Installer Config:** `EFI/OC/config.plist` is pre-configured for installation on Sonoma and Sequoia (with `revpatch=sbvmm` active and Bluetooth kexts temporarily disabled to avoid installer freezes).
 4. Insert the USB, press `F12` on boot, select your USB drive, and choose **macOS Recovery (dmg)** from the OpenCore boot picker.
 5. After macOS is installed and you reach the desktop, switch to `EFI/OC/config-postinstall.plist` (rename it to `config.plist`) on your SSD to re-enable native Bluetooth.
 
@@ -174,5 +165,5 @@ Install `Post-Install/Apps/YogaSMC-App-Release.dmg` for fan speed control and ba
 - [Acidanthera](https://github.com/acidanthera) (OpenCore, Lilu, VirtualSMC, WhateverGreen, AppleALC)
 - [tylernguyen/x1c6-hackintosh](https://github.com/tylernguyen/x1c6-hackintosh) (Base ACPI patches and reference)
 - [Rybo713/X1C6-macOS](https://github.com/Rybo713/X1C6-macOS) (OpenCore 1.0.2 EFI structure)
-- [XE-i23333/ThinkPad-X1C6-Hackintosh](https://github.com/XE-i23333/ThinkPad-X1C6-Hackintosh) (Thermal daemon scripts and Tahoe fixes)
+- [XE-i23333/ThinkPad-X1C6-Hackintosh](https://github.com/XE-i23333/ThinkPad-X1C6-Hackintosh) (Thermal daemon scripts and references)
 - [OpenIntelWireless](https://github.com/OpenIntelWireless) (itlwm, HeliPort)
