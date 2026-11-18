@@ -56,11 +56,11 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>SSDT-HWAC.aml</string>
+				<string>SSDT-Keyboard.aml</string>
 				<key>Enabled</key>
 				<true/>
 				<key>Path</key>
-				<string>SSDT-HWAC.aml</string>
+				<string>SSDT-Keyboard.aml</string>
 			</dict>
 			<dict>
 				<key>Comment</key>
