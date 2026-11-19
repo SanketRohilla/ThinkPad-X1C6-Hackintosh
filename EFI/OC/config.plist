@@ -1307,7 +1307,7 @@
 			<dict>
 				<key>AAPL,ig-platform-id</key>
 				<data>
-				BAAnWQ==
+				AAAWWQ==
 				</data>
 				<key>AAPL00,override-no-connect</key>
 				<data>
@@ -1327,10 +1327,6 @@
 				<key>device-id</key>
 				<data>
 				FlkAAA==
-				</data>
-				<key>enable-hdmi20</key>
-				<data>
-				AQAAAA==
 				</data>
 				<key>enable-max-pixel-clock-override</key>
 				<data>
