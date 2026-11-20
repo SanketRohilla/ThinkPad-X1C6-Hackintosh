@@ -1236,7 +1236,7 @@
 			<key>SignalAppleOS</key>
 			<false/>
 			<key>SyncRuntimePermissions</key>
-			<false/>
+			<true/>
 			<key>ClearTaskSwitchBit</key>
 			<false/>
 		</dict>
@@ -2015,7 +2015,7 @@
 				<key>MinKernel</key>
 				<string></string>
 				<key>Strategy</key>
-				<string>Exclude</string>
+				<string>Disable</string>
 			</dict>
 		</array>
 		<key>Emulate</key>
@@ -2225,7 +2225,7 @@
 			<key>BlacklistAppleUpdate</key>
 			<true/>
 			<key>DmgLoading</key>
-			<string>Signed</string>
+			<string>Any</string>
 			<key>EnablePassword</key>
 			<false/>
 			<key>ExposeSensitiveData</key>
