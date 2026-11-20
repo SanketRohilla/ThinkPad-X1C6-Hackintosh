@@ -2146,7 +2146,7 @@
 			<key>ProvideCurrentCpuInfo</key>
 			<false/>
 			<key>SetApfsTrimTimeout</key>
-			<integer>0</integer>
+			<integer>999</integer>
 			<key>ThirdPartyDrives</key>
 			<false/>
 			<key>XhciPortLimit</key>
@@ -2297,7 +2297,7 @@
 				AAAAAAAAAAAAAAAAAAA=
 				</data>
 				<key>boot-args</key>
-				<string>panic=15 keepsyms=1 -v msgbuf=1048576 -lilubetaall -no_compat_check revpatch=sbvmm -btlfxallowanyaddr -amfipassbeta -revbeta -wegbeta -ibtcompatbeta ipc_control_port_options=0 -vsmcbeta amfi_get_out_of_my_way=1 -igfxvesa</string>
+				<string>panic=15 keepsyms=1 -v msgbuf=1048576 -lilubetaall -no_compat_check revpatch=sbvmm -btlfxallowanyaddr -amfipassbeta -revbeta -wegbeta -ibtcompatbeta ipc_control_port_options=0 -vsmcbeta -igfxvesa</string>
 				<key>csr-active-config</key>
 				<data>
 				AwgAAA==
