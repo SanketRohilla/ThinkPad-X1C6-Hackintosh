@@ -1307,7 +1307,7 @@
 			<dict>
 				<key>AAPL,ig-platform-id</key>
 				<data>
-				AAAWWQ==
+				BAAnWQ==
 				</data>
 				<key>AAPL00,override-no-connect</key>
 				<data>
@@ -1332,11 +1332,11 @@
 				<data>
 				AQAAAA==
 				</data>
-				<key>framebuffer-con1-enable</key>
+				<key>framebuffer-con2-enable</key>
 				<data>
 				AQAAAA==
 				</data>
-				<key>framebuffer-con1-type</key>
+				<key>framebuffer-con2-type</key>
 				<data>
 				AAgAAA==
 				</data>
@@ -1503,7 +1503,7 @@
 				<key>Comment</key>
 				<string>AppleIntelCFLGraphicsFramebuffer.kext</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AppleIntelCFLGraphicsFramebuffer</string>
 				<key>MaxKernel</key>
@@ -1863,7 +1863,7 @@
 				<key>Comment</key>
 				<string>RMII2C.kext</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/RMII2C</string>
 				<key>MaxKernel</key>
@@ -1953,7 +1953,7 @@
 				<key>Comment</key>
 				<string>VoodooPS2Trackpad.kext</string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooPS2Trackpad</string>
 				<key>MaxKernel</key>
@@ -1965,7 +1965,24 @@
 			</dict>
 		</array>
 		<key>Block</key>
-		<array/>
+		<array>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Comment</key>
+				<string>Disable AppleThunderboltNHISpeedTest to fix wake kernel panic</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Identifier</key>
+				<string>com.apple.driver.AppleThunderboltNHISpeedTest</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string></string>
+				<key>Strategy</key>
+				<string>Exclude</string>
+			</dict>
+		</array>
 		<key>Emulate</key>
 		<dict>
 			<key>Cpuid1Data</key>
@@ -2016,7 +2033,7 @@
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				D4KPAwAA
@@ -2237,7 +2254,7 @@
 				AAAAAAAAAAAAAAAAAAA=
 				</data>
 				<key>boot-args</key>
-				<string>keepsyms=1 -no_compat_check -lilubetaall revpatch=sbvmm -v -btlfxallowanyaddr revblock=perfps igfxonln=1 -igfxblt -igfxmpc</string>
+				<string>keepsyms=1 swd_panic=1 -lilubetaall -no_compat_check revpatch=sbvmm -v -btlfxallowanyaddr revblock=perfps igfxonln=1 -igfxblt -igfxmpc</string>
 				<key>csr-active-config</key>
 				<data>
 				AwgAAA==
@@ -2305,7 +2322,7 @@
 			<key>AdviseFeatures</key>
 			<false/>
 			<key>MLB</key>
-			<string>C02011501GU00008C</string>
+			<string>C02036501GUJH4RCB</string>
 			<key>MaxBIOSVersion</key>
 			<false/>
 			<key>ProcessorType</key>
@@ -2319,11 +2336,11 @@
 			<key>SystemMemoryStatus</key>
 			<string>Auto</string>
 			<key>SystemProductName</key>
-			<string>MacBookPro16,3</string>
+			<string>MacBookPro15,2</string>
 			<key>SystemSerialNumber</key>
-			<string>C02CF0WNP3XY</string>
+			<string>C02DCLZDJHCC</string>
 			<key>SystemUUID</key>
-			<string>65849ECA-FBDB-4418-AD07-A085F88FEDAE</string>
+			<string>0F24A1C6-AAC0-4963-9ECE-CD33FD9B55A5</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
@@ -2345,7 +2362,7 @@
 			<key>GlobalConnect</key>
 			<false/>
 			<key>HideVerbose</key>
-			<true/>
+			<false/>
 			<key>JumpstartHotPlug</key>
 			<false/>
 			<key>MinDate</key>
