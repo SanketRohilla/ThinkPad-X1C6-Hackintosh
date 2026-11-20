@@ -1237,6 +1237,8 @@
 			<false/>
 			<key>SyncRuntimePermissions</key>
 			<false/>
+			<key>ClearTaskSwitchBit</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>DeviceProperties</key>
@@ -2472,6 +2474,8 @@
 				<false/>
 				<key>Path</key>
 				<string>AudioDxe.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2484,6 +2488,8 @@
 				<false/>
 				<key>Path</key>
 				<string>HFSPlus.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2496,6 +2502,8 @@
 				<false/>
 				<key>Path</key>
 				<string>OpenCanopy.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2508,6 +2516,8 @@
 				<false/>
 				<key>Path</key>
 				<string>OpenRuntime.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2520,6 +2530,8 @@
 				<false/>
 				<key>Path</key>
 				<string>ToggleSipEntry.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2532,6 +2544,8 @@
 				<false/>
 				<key>Path</key>
 				<string>OpenLinuxBoot.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2544,6 +2558,8 @@
 				<false/>
 				<key>Path</key>
 				<string>ext4_x64.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2556,6 +2572,8 @@
 				<false/>
 				<key>Path</key>
 				<string>ResetNvramEntry.efi</string>
+				<key>HideVerbose</key>
+				<false/>
 			</dict>
 		</array>
 		<key>Input</key>
@@ -2707,6 +2725,8 @@
 				<string>RuntimeCode</string>
 			</dict>
 		</array>
+		<key>Unload</key>
+		<array/>
 	</dict>
 </dict>
 </plist>
