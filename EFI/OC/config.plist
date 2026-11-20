@@ -2173,7 +2173,7 @@
 			<key>BlacklistAppleUpdate</key>
 			<true/>
 			<key>DmgLoading</key>
-			<string>Signed</string>
+			<string>Any</string>
 			<key>EnablePassword</key>
 			<false/>
 			<key>ExposeSensitiveData</key>
@@ -2237,10 +2237,10 @@
 				AAAAAAAAAAAAAAAAAAA=
 				</data>
 				<key>boot-args</key>
-				<string>keepsyms=1 revpatch=sbvmm -v -btlfxallowanyaddr revblock=perfps igfxonln=1 -igfxblt -igfxmpc</string>
+				<string>keepsyms=1 -no_compat_check -lilubetaall revpatch=sbvmm -v -btlfxallowanyaddr revblock=perfps igfxonln=1 -igfxblt -igfxmpc</string>
 				<key>csr-active-config</key>
 				<data>
-				AAAAAA==
+				AwgAAA==
 				</data>
 				<key>run-efi-updater</key>
 				<string>No</string>
@@ -2261,6 +2261,7 @@
 				<string>boot-args</string>
 				<string>bluetoothExternalDongleFailed</string>
 				<string>bluetoothInternalControllerInfo</string>
+				<string>csr-active-config</string>
 			</array>
 		</dict>
 		<key>LegacyOverwrite</key>
