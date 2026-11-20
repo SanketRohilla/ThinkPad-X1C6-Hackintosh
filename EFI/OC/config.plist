@@ -1175,7 +1175,7 @@
 				cABsAGkAcwB0
 				</data>
 				<key>Identifier</key>
-				<string>Apple</string>
+				<string>Any</string>
 				<key>Limit</key>
 				<integer>0</integer>
 				<key>Mask</key>
@@ -1236,7 +1236,7 @@
 			<key>SignalAppleOS</key>
 			<false/>
 			<key>SyncRuntimePermissions</key>
-			<true/>
+			<false/>
 		</dict>
 	</dict>
 	<key>DeviceProperties</key>
@@ -2194,21 +2194,21 @@
 		<key>Debug</key>
 		<dict>
 			<key>AppleDebug</key>
-			<false/>
+			<true/>
 			<key>ApplePanic</key>
-			<false/>
+			<true/>
 			<key>DisableWatchDog</key>
 			<true/>
 			<key>DisplayDelay</key>
 			<integer>0</integer>
 			<key>DisplayLevel</key>
-			<integer>2147483650</integer>
+			<integer>2147483714</integer>
 			<key>LogModules</key>
 			<string>*</string>
 			<key>SysReport</key>
 			<false/>
 			<key>Target</key>
-			<integer>0</integer>
+			<integer>67</integer>
 		</dict>
 		<key>Entries</key>
 		<array/>
@@ -2223,7 +2223,7 @@
 			<key>BlacklistAppleUpdate</key>
 			<true/>
 			<key>DmgLoading</key>
-			<string>Any</string>
+			<string>Signed</string>
 			<key>EnablePassword</key>
 			<false/>
 			<key>ExposeSensitiveData</key>
@@ -2287,7 +2287,7 @@
 				AAAAAAAAAAAAAAAAAAA=
 				</data>
 				<key>boot-args</key>
-				<string>keepsyms=1 swd_panic=1 -lilubetaall -no_compat_check revpatch=sbvmm -v -btlfxallowanyaddr revblock=perfps igfxonln=1 -igfxblt -igfxmpc</string>
+				<string>debug=0x100 keepsyms=1 -v msgbuf=1048576 -lilubetaall -no_compat_check revpatch=sbvmm -btlfxallowanyaddr revblock=perfps igfxonln=1 -igfxblt -igfxmpc</string>
 				<key>csr-active-config</key>
 				<data>
 				AwgAAA==
