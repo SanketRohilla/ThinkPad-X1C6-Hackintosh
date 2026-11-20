@@ -1359,6 +1359,14 @@
 				Na0QAAAaMCyA3nA4FEAwIDYANa0QAAAaAAAA/gBCT0Ug
 				Q1EKICAgICAgAAAA/gBIVjE0MEZITS1ONjEKAF4=
 				</data>
+				<key>complete-modeset</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>complete-modeset-framebuffers</key>
+				<data>
+				AAAAAAAAAAE=
+				</data>
 				<key>device-id</key>
 				<data>
 				FlkAAA==
@@ -2138,7 +2146,7 @@
 			<key>ProvideCurrentCpuInfo</key>
 			<false/>
 			<key>SetApfsTrimTimeout</key>
-			<integer>0</integer>
+			<integer>999</integer>
 			<key>ThirdPartyDrives</key>
 			<false/>
 			<key>XhciPortLimit</key>
@@ -2289,7 +2297,7 @@
 				AAAAAAAAAAAAAAAAAAA=
 				</data>
 				<key>boot-args</key>
-				<string>panic=15 keepsyms=1 -v msgbuf=1048576 -lilubetaall -no_compat_check revpatch=sbvmm -btlfxallowanyaddr -amfipassbeta -revbeta -wegbeta -ibtcompatbeta ipc_control_port_options=0 -vsmcbeta igfxonln=1</string>
+				<string>panic=15 keepsyms=1 -v msgbuf=1048576 -lilubetaall -no_compat_check revpatch=sbvmm -btlfxallowanyaddr -amfipassbeta -revbeta -wegbeta -ibtcompatbeta ipc_control_port_options=0 -vsmcbeta -igfxvesa</string>
 				<key>csr-active-config</key>
 				<data>
 				AwgAAA==
@@ -2694,7 +2702,7 @@
 			<key>IgnoreInvalidFlexRatio</key>
 			<false/>
 			<key>ReleaseUsbOwnership</key>
-			<true/>
+			<false/>
 			<key>ReloadOptionRoms</key>
 			<false/>
 			<key>RequestBootVarRouting</key>
