@@ -1474,7 +1474,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/SMCProcessor</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>24.99.99</string>
 				<key>MinKernel</key>
 				<string></string>
 				<key>PlistPath</key>
@@ -1582,7 +1582,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/CPUFriend</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>24.99.99</string>
 				<key>MinKernel</key>
 				<string></string>
 				<key>PlistPath</key>
@@ -1600,7 +1600,7 @@
 				<key>ExecutablePath</key>
 				<string></string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>24.99.99</string>
 				<key>MinKernel</key>
 				<string></string>
 				<key>PlistPath</key>
@@ -1618,7 +1618,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/IntelMausi</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>24.99.99</string>
 				<key>MinKernel</key>
 				<string></string>
 				<key>PlistPath</key>
