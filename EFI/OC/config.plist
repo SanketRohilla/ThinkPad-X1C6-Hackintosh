@@ -1199,6 +1199,8 @@
 			<false/>
 			<key>AvoidRuntimeDefrag</key>
 			<true/>
+			<key>ClearTaskSwitchBit</key>
+			<false/>
 			<key>DevirtualiseMmio</key>
 			<false/>
 			<key>DisableSingleUser</key>
@@ -1237,8 +1239,6 @@
 			<false/>
 			<key>SyncRuntimePermissions</key>
 			<true/>
-			<key>ClearTaskSwitchBit</key>
-			<false/>
 		</dict>
 	</dict>
 	<key>DeviceProperties</key>
@@ -1362,6 +1362,10 @@
 				<key>device-id</key>
 				<data>
 				FlkAAA==
+				</data>
+				<key>enable-hdmi20</key>
+				<data>
+				AQAAAA==
 				</data>
 				<key>enable-max-pixel-clock-override</key>
 				<data>
@@ -1488,7 +1492,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/SMCBatteryManager</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>24.99.99</string>
 				<key>MinKernel</key>
 				<string></string>
 				<key>PlistPath</key>
@@ -1506,7 +1510,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/SMCLightSensor</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>24.99.99</string>
 				<key>MinKernel</key>
 				<string></string>
 				<key>PlistPath</key>
@@ -1560,7 +1564,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/AppleALC</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>24.99.99</string>
 				<key>MinKernel</key>
 				<string></string>
 				<key>PlistPath</key>
@@ -1740,7 +1744,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/YogaSMC</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>24.99.99</string>
 				<key>MinKernel</key>
 				<string></string>
 				<key>PlistPath</key>
@@ -1758,7 +1762,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/IntelBluetoothFirmware</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>24.99.99</string>
 				<key>MinKernel</key>
 				<string></string>
 				<key>PlistPath</key>
@@ -1794,7 +1798,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/BlueToolFixup</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>24.99.99</string>
 				<key>MinKernel</key>
 				<string></string>
 				<key>PlistPath</key>
@@ -2289,7 +2293,7 @@
 				AAAAAAAAAAAAAAAAAAA=
 				</data>
 				<key>boot-args</key>
-				<string>debug=0x100 keepsyms=1 -v msgbuf=1048576 -lilubetaall -no_compat_check revpatch=sbvmm -btlfxallowanyaddr revblock=perfps igfxonln=1 -igfxblt -igfxmpc</string>
+				<string>debug=0x100 keepsyms=1 -v msgbuf=1048576 -lilubetaall -no_compat_check revpatch=sbvmm -btlfxallowanyaddr revblock=perfps igfxonln=1 -igfxblt -igfxmpc -amfipassbeta -revbeta -wegbeta -ibtcompatbeta amfi_get_out_of_my_way=1 ipc_control_port_options=0 -vsmcbeta -igfxvesa</string>
 				<key>csr-active-config</key>
 				<data>
 				AwgAAA==
@@ -2470,12 +2474,12 @@
 				<string>AudioDxe.efi</string>
 				<key>Enabled</key>
 				<true/>
+				<key>HideVerbose</key>
+				<false/>
 				<key>LoadEarly</key>
 				<false/>
 				<key>Path</key>
 				<string>AudioDxe.efi</string>
-				<key>HideVerbose</key>
-				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2484,12 +2488,12 @@
 				<string>HFSPlus.efi</string>
 				<key>Enabled</key>
 				<true/>
+				<key>HideVerbose</key>
+				<false/>
 				<key>LoadEarly</key>
 				<false/>
 				<key>Path</key>
 				<string>HFSPlus.efi</string>
-				<key>HideVerbose</key>
-				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2498,12 +2502,12 @@
 				<string>OpenCanopy.efi</string>
 				<key>Enabled</key>
 				<true/>
+				<key>HideVerbose</key>
+				<false/>
 				<key>LoadEarly</key>
 				<false/>
 				<key>Path</key>
 				<string>OpenCanopy.efi</string>
-				<key>HideVerbose</key>
-				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2512,12 +2516,12 @@
 				<string>OpenRuntime.efi</string>
 				<key>Enabled</key>
 				<true/>
+				<key>HideVerbose</key>
+				<false/>
 				<key>LoadEarly</key>
 				<false/>
 				<key>Path</key>
 				<string>OpenRuntime.efi</string>
-				<key>HideVerbose</key>
-				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2526,12 +2530,12 @@
 				<string>ToggleSipEntry.efi</string>
 				<key>Enabled</key>
 				<true/>
+				<key>HideVerbose</key>
+				<false/>
 				<key>LoadEarly</key>
 				<false/>
 				<key>Path</key>
 				<string>ToggleSipEntry.efi</string>
-				<key>HideVerbose</key>
-				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2540,12 +2544,12 @@
 				<string>OpenLinuxBoot.efi</string>
 				<key>Enabled</key>
 				<true/>
+				<key>HideVerbose</key>
+				<false/>
 				<key>LoadEarly</key>
 				<false/>
 				<key>Path</key>
 				<string>OpenLinuxBoot.efi</string>
-				<key>HideVerbose</key>
-				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2554,12 +2558,12 @@
 				<string>ext4_x64.efi</string>
 				<key>Enabled</key>
 				<true/>
+				<key>HideVerbose</key>
+				<false/>
 				<key>LoadEarly</key>
 				<false/>
 				<key>Path</key>
 				<string>ext4_x64.efi</string>
-				<key>HideVerbose</key>
-				<false/>
 			</dict>
 			<dict>
 				<key>Arguments</key>
@@ -2568,12 +2572,12 @@
 				<string>ResetNvramEntry.efi</string>
 				<key>Enabled</key>
 				<true/>
+				<key>HideVerbose</key>
+				<false/>
 				<key>LoadEarly</key>
 				<false/>
 				<key>Path</key>
 				<string>ResetNvramEntry.efi</string>
-				<key>HideVerbose</key>
-				<false/>
 			</dict>
 		</array>
 		<key>Input</key>
