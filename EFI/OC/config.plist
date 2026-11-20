@@ -1838,7 +1838,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooPS2Controller</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>24.99.99</string>
 				<key>MinKernel</key>
 				<string></string>
 				<key>PlistPath</key>
@@ -1856,7 +1856,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooInput</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>24.99.99</string>
 				<key>MinKernel</key>
 				<string></string>
 				<key>PlistPath</key>
@@ -1874,7 +1874,7 @@
 				<key>ExecutablePath</key>
 				<string>Contents/MacOS/VoodooPS2Keyboard</string>
 				<key>MaxKernel</key>
-				<string></string>
+				<string>24.99.99</string>
 				<key>MinKernel</key>
 				<string></string>
 				<key>PlistPath</key>
@@ -2208,7 +2208,7 @@
 			<key>ApplePanic</key>
 			<true/>
 			<key>DisableWatchDog</key>
-			<false/>
+			<true/>
 			<key>DisplayDelay</key>
 			<integer>0</integer>
 			<key>DisplayLevel</key>
@@ -2297,7 +2297,7 @@
 				AAAAAAAAAAAAAAAAAAA=
 				</data>
 				<key>boot-args</key>
-				<string>panic=15 keepsyms=1 -v msgbuf=1048576 -lilubetaall -no_compat_check revpatch=sbvmm -btlfxallowanyaddr -amfipassbeta -revbeta -wegbeta -ibtcompatbeta ipc_control_port_options=0 -vsmcbeta -igfxvesa</string>
+				<string>panic=15 keepsyms=1 -v msgbuf=1048576 -lilubetaall -no_compat_check revpatch=sbvmm -btlfxallowanyaddr -amfipassbeta -revbeta -wegbeta -ibtcompatbeta ipc_control_port_options=0 -vsmcbeta</string>
 				<key>csr-active-config</key>
 				<data>
 				AwgAAA==
