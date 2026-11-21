@@ -16,7 +16,7 @@ REPOS = [
     ("acidanthera/AppleALC", ["AppleALC.kext"]),
     ("acidanthera/RestrictEvents", ["RestrictEvents.kext"]),
     ("acidanthera/BrcmPatchRAM", ["BlueToolFixup.kext"]),
-    ("OpenIntelWireless/IntelBluetoothFirmware", ["IntelBluetoothFirmware.kext", "IntelBTPatcher.kext"]),
+    ("OpenIntelWireless/IntelBluetoothFirmware", ["IntelBluetoothFirmware.kext"]),
 ]
 
 for repo, targets in REPOS:
@@ -51,12 +51,3 @@ for repo, targets in REPOS:
                 shutil.rmtree(dest)
             shutil.copytree(matches[0], dest)
             print(f"  [INSTALLED] {dest}")
-        else:
-            print(f"  [WARN] Target not found: {target}")
-
-    # Also keep any .pkg (e.g. SimpleHDA HAL package) in tmp_dir for Tahoe installation
-    for pkg in extract_dir.rglob("*.pkg"):
-        shutil.copy2(pkg, tmp_dir / pkg.name)
-        print(f"  [SAVED PKG] {pkg.name}")
-
-print("\n[DONE] update_tahoe_kexts completed.")
