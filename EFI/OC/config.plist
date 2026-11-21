@@ -2025,6 +2025,22 @@
 				<key>Strategy</key>
 				<string>Disable</string>
 			</dict>
+			<dict>
+				<key>Arch</key>
+				<string>x86_64</string>
+				<key>Comment</key>
+				<string>Tahoe: block AppleThunderboltNHI to prevent 0xFFFFFFFF PCIe/DMA hard-lock</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Identifier</key>
+				<string>com.apple.driver.AppleThunderboltNHI</string>
+				<key>MaxKernel</key>
+				<string></string>
+				<key>MinKernel</key>
+				<string>25.0.0</string>
+				<key>Strategy</key>
+				<string>Exclude</string>
+			</dict>
 		</array>
 		<key>Emulate</key>
 		<dict>
