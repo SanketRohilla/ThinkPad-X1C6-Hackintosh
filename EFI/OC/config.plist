@@ -1246,7 +1246,7 @@
 			<key>SignalAppleOS</key>
 			<false/>
 			<key>SyncRuntimePermissions</key>
-			<true/>
+			<false/>
 		</dict>
 	</dict>
 	<key>DeviceProperties</key>
@@ -1348,6 +1348,10 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
+				<key>AAPL,GfxYTile</key>
+				<data>
+				AQAAAA==
+				</data>
 				<key>AAPL,ig-platform-id</key>
 				<data>
 				AAAWWQ==
@@ -1370,6 +1374,14 @@
 				<key>device-id</key>
 				<data>
 				FlkAAA==
+				</data>
+				<key>disable-external-gpu</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>enable-hdmi20</key>
+				<data>
+				AQAAAA==
 				</data>
 				<key>enable-max-pixel-clock-override</key>
 				<data>
@@ -2297,7 +2309,7 @@
 				AAAAAAAAAAAAAAAAAAA=
 				</data>
 				<key>boot-args</key>
-				<string>panic=15 keepsyms=1 -v msgbuf=1048576 -lilubetaall -no_compat_check revpatch=sbvmm -btlfxallowanyaddr -amfipassbeta -revbeta -wegbeta -ibtcompatbeta ipc_control_port_options=0 -vsmcbeta -igfxvesa</string>
+				<string>panic=15 keepsyms=1 -v msgbuf=1048576 -lilubetaall -no_compat_check revpatch=sbvmm -btlfxallowanyaddr -amfipassbeta -revbeta -wegbeta -ibtcompatbeta ipc_control_port_options=0 -vsmcbeta -igfxvesa amfi_get_out_of_my_way=1 igfxonln=1</string>
 				<key>csr-active-config</key>
 				<data>
 				AwgAAA==
