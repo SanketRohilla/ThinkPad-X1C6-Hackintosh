@@ -194,7 +194,7 @@
 				<key>Comment</key>
 				<string>SSDT-XHC1.aml</string>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Path</key>
 				<string>SSDT-XHC1.aml</string>
 			</dict>
@@ -229,7 +229,7 @@
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				X1VQQw==
@@ -269,7 +269,7 @@
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				FEIQX1BTMAg=
@@ -308,7 +308,7 @@
 				<key>Count</key>
 				<integer>0</integer>
 				<key>Enabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				FEY/X1BTMwg=
