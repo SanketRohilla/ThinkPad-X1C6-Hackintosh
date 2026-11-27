@@ -130,15 +130,19 @@ Copy either `EFI/` (for Ventura/Sonoma/Sequoia) or `EFI-Tahoe/` (renamed to `EFI
 
 ---
 
-## Post-Install: Undervolting & Thermal Setup
+## Post-Install: Apps & Optional Undervolting
 
-```bash
-cd Post-Install/VoltageShift
-chmod +x voltageshift setup.sh
-sudo bash setup.sh
-```
-
-Install `Post-Install/Apps/YogaSMC-App-Release.dmg` for fan speed control and battery charge thresholds, and `Post-Install/Apps/HeliPort_v1.5.0.dmg` for Wi-Fi.
+1. **Required Apps:** Install `Post-Install/Apps/HeliPort_v1.5.0.dmg` for Wi-Fi (`itlwm.kext`) and `Post-Install/Apps/YogaSMC-App-Release.dmg` for fan speed control and battery charge thresholds.
+2. **VoltageShift (Optional — Not Needed for Sequoia):**
+   - Sequoia (and Ventura/Sonoma) already run cooler and well without `VoltageShift` via `CPUFriend` + Intel SpeedShift (`VoltageShift.kext` is omitted from the stable `EFI/`).
+   - **Thermal warning:** `Post-Install/VoltageShift/setup.sh` raises the CPU throttle target (`MSR 0x1A2`) to `100°C` and unlocks TDP limits, which causes extra heat in the thin X1C6 chassis.
+   - If you only want **undervolting** (lower temps without raising TDP/temp limits), ensure `VoltageShift.kext` is injected in OpenCore (`EFI-Tahoe/OC/Kexts/VoltageShift.kext`), reboot, and run only the `offset` command:
+     ```bash
+     cd Post-Install/VoltageShift
+     chmod +x voltageshift setup.sh
+     sudo ./voltageshift offset -80 0 -50 0 0
+     ```
+   - To also apply the TDP/temp-target unlock (`16W/26W`, `100°C` trip point), run `sudo bash setup.sh` instead.
 
 ---
 
