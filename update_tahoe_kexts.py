@@ -2,7 +2,7 @@
 import io, json, shutil, urllib.request, zipfile
 from pathlib import Path
 
-kexts_dir = Path("EFI/OC/Kexts")
+kexts_dir = Path("EFI-Tahoe/OC/Kexts")
 tmp_dir = Path("/tmp/tahoe_kext_bundle")
 if tmp_dir.exists():
     shutil.rmtree(tmp_dir)
